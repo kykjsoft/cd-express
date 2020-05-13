@@ -9,7 +9,7 @@ const defaultConfig = {
         "~":["./"],
     },
     open:{
-        enabled:true,
+        enabled:false,
         app: 'chrome',
         url:"/"
     }
