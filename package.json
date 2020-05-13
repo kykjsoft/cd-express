@@ -1,0 +1,27 @@
+{
+  "name": "cd-express",
+  "version": "1.0.0",
+  "description": "using express through configuration",
+  "main": "index.js",
+  "bin": {
+    "cd-express": "./bin/cd-express.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/configure-driver/cd-express.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/configure-driver/cd-express/issues"
+  },
+  "homepage": "https://github.com/configure-driver/cd-express#readme",
+  "dependencies": {
+    "arg": "^4.1.3",
+    "express": "^4.17.1",
+    "open": "^7.0.3"
+  }
+}
