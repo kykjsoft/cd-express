@@ -60,22 +60,38 @@ const getConfig = function(filename){
     })
 }
 
-let filename = args["_"].length?args["_"][0]:"cd-express.js";
-debug(filename);
-getConfig(path.join(cwd,filename))
-.then(function(config){
-    if(args["--open"]){
-        config.open = config.open || {}
-        config.open.enabled = true;
-    }
-    if(args["--debug"]){
-        config.debug = true;
-    }
-    if(args["--port"]){
-        config.port = args["--port"];
-    }
-    serve(config);
-}).catch(function(err){
-    console.error(err);
-})
+
+let configFileName = "cd-express.js";
+if(args["_"].length&&args["_"][0]=="init"){
+    
+    let destPath = path.join(cwd,configFileName);
+    let sourceFile = path.join(__dirname,"../",configFileName);
+    
+    var readStream = fs.createReadStream(sourceFile);
+    var writeStream = fs.createWriteStream(destPath);
+    readStream.pipe(writeStream);
+}else{
+    let filename = args["_"].length?args["_"][0]:configFileName;
+    debug(filename);
+    
+    getConfig(path.join(cwd,filename))
+    .then(function(config){
+        if(args["--open"]){
+            config.open = config.open || {}
+            config.open.enabled = true;
+        }
+        if(args["--debug"]){
+            config.debug = true;
+        }
+        if(args["--port"]){
+            config.port = args["--port"];
+        }
+        
+        //console.log(args);
+        //console.log(config);
+        serve(config);
+    }).catch(function(err){
+        console.error(err);
+    })
+}
 return;

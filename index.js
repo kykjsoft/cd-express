@@ -13,7 +13,7 @@ const defaultConfig = {
         app: 'chrome',
         url:"/"
     }
-}
+};
 
 let debug = false;
 const log = function(msg){
