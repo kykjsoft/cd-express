@@ -54,24 +54,9 @@ debug(process.argv);
 debug(process.argv0);
  
 debug(args);
-const getConfig = function(filename){
-    return new Promise((resolve,reject)=>{
-        fs.readFile(filename, (err, data) => {
-            if(err && err.code == 'ENOENT'){
-                resolve({})
-                return;
-            }
-            else if(err){throw err;}
-            debug(path.join(cwd,filename));
-            debug(path.join(__dirname,filename));
-            resolve(require(path.join(filename)))
-        });
-    })
-}
 
-let filename = args["_"].length?args["_"][0]:"cd-express.js";
-debug(filename);
-getConfig(path.join(cwd,filename))
+
+option.getConfig(cwd)
 .then(function(config){
     if(args["--open"]){
         config.open = config.open || {}
