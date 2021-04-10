@@ -3,7 +3,13 @@ using express through configuration
 ```js
 module.exports = {
     static:{
-        "~":"./examples"
+        "/":"./public"
+    },
+    proxy:{
+        "/":"http://127.0.0.1:5009"
+    },
+    router:{
+        "/index":"./router/index"
     },
     open:{
         enabled:true,
