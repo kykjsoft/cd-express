@@ -16,7 +16,7 @@ const defaultConfig = {
     router:{
         
     }
-}
+};
 
 const debug = false;
 const log = function(msg){debug&&console.log(msg);}

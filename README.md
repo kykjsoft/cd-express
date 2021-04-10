@@ -1,5 +1,6 @@
 # cd-express
 using express through configuration
+
 ```js
 module.exports = {
     static:{
