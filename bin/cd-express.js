@@ -6,10 +6,12 @@ const cwd = process.cwd();
 const serve = require('../index');
 const arg = require("arg")
 const pkg = require("../package.json")
+const option = require("../lib/option")
 
 const args = arg({
     // Types
     '--help':    Boolean,
+    '--init':    Boolean,
     '--debug':    Boolean,
     '--version': Boolean,
     '--open': Boolean,
@@ -29,7 +31,14 @@ if(args["--help"]){
     return ;
 }
 if(args["--version"]){
-    console.log(pkg.pkg)
+    console.log(pkg.version)
+    return ;
+}
+
+if(args["--init"]){
+    option.init(cwd).then(()=>{
+        // console.log(pkg.version)
+    });
     return ;
 }
 

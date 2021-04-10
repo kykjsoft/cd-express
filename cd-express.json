@@ -1,0 +1,10 @@
+// help document : https://jsonschema-zh-hans.github.io
+{
+    "port": 3000,
+    "static": {
+        "/": [
+            "./docs"
+        ]
+    },
+    "$schema": "https://jsonschema-zh-hans.github.io/schemas/cd-express.json"
+}
