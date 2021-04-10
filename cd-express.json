@@ -1,0 +1,13 @@
+//doc: https://configure-driver.github.io/cd-express/
+{
+    "$schema": "https://configure-driver.github.io/cd-express/schemas/cd-express.json",
+    "port": 3000,
+    "static": {
+        "/": [
+            "./docs"
+        ]
+    },
+    "proxy":{
+
+    }
+}

@@ -1,21 +1,37 @@
 # cd-express
 using express through configuration
 
-```js
-module.exports = {
-    static:{
-        "/":"./public"
+## Install
+
+```
+$ npm install cd-express
+```
+
+## Usage
+```
+$ cd-express --init
+$ cd-express
+```
+
+### cd-express.json
+```
+{
+    "$schema":"https://jsonschema-zh-hans.github.io/schemas/cd-express.json",
+    "port":8988,
+    "debug":true,
+    "open":{
+        
     },
-    proxy:{
-        "/":"http://127.0.0.1:5009"
+    "static": { 
+        "/": [ "./public" ] 
     },
-    router:{
-        "/index":"./router/index"
+    "router":{
+        "/api":"./router"
     },
-    open:{
-        enabled:true,
-        url:"demo.html",
-        app:"chrome"
+    "proxy":{ 
+        "/":[
+            {"target":"http://127.0.0.1:5009"}
+        ] 
     }
 }
 ```

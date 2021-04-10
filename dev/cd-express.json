@@ -1,5 +1,5 @@
 {
-    "$schema":"https://jsonschema-zh-hans.github.io/schemas/cd-express.json",
+    "$schema":"https://configure-driver.github.io/cd-express/schemas/cd-express.json",
     "port":8988,
     "debug":true,
     "open":{
