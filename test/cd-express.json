@@ -1,0 +1,15 @@
+{
+    "routerDir":{
+        "/":["./router"]
+    },
+    "router": {
+        "/":["./router",{
+            "api/list":["2.js"]
+        }]
+    },
+    "static": {
+        "/":[
+            "./public"
+        ]
+    }
+}

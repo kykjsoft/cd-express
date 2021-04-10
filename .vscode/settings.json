@@ -1,0 +1,13 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "**/cd-express.json"
+            ],
+            "url": "./docs/schemas/cd-express.json"
+        }
+    ],
+    "files.associations": {
+        "*.json": "jsonc"
+    }
+}

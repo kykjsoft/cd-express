@@ -1,0 +1,62 @@
+{
+    // 语言
+    "title": "JSON schema for cd-express.json",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type":"object",
+    "definitions": {
+        "port":{
+          "type":["integer","string"],
+          "description": "端口,默认 3000",
+          "default":3000
+        },
+        "static":{
+          "type":"object",
+          "description": "配置静态资源路由，\"/\" 表示根目录，示例：\n \"/\":[\"./docs\"]\n \"/libs\":[\"/dist/libs\"]",
+          "properties": {
+            "/":{
+              "description": "根目录，\n示例：\n [\"./public\",\"./static\"]",
+              "type":"array",
+              "default":["./public"]
+            }
+          }
+        },
+        "router":{
+          "type":"object",
+          "description": "配置动态路由，\"/\" 表示根目录，示例：\n \"/\":\"./router/index\"",
+          "properties": {
+            "/":{
+              "description": "根目录，\n示例：\n [\"./public\",\"./static\"]",
+              "type":"array",
+              "default":"./router/index"
+            }
+          }
+        },
+        "proxy":{
+          "type":"object",
+          "description": "配置代理转发，\"/\" 表示根目录，示例：\n \"/\":[\"./docs\"]\n \"/libs\":[\"/dist/libs\"]\n配置项参考express中间件：http-proxy-middleware",
+          "properties": {
+            "/":{
+              "description": "根目录，\n示例：\n [{\"target\":\"http://127.0.0.1:5009\"}]",
+              "type":"array",
+              "default":["./public"]
+            }
+          }
+        },
+        "open":{
+          "type":"object",
+          "description": "启动后打开浏览器配置",
+          "properties": {
+            "enabled":{"type":"boolean","default":false,"description": "自动打开浏览器"},
+            "app":{"type":"string","description": "浏览器类型","default":"chrome"},
+            "url":{"type":"string","description": "地址","default":"/"}
+          }
+        }
+    },
+    "properties": {
+        "port":{"$ref":"#/definitions/port"},
+        "static":{"$ref":"#/definitions/static"},
+        "router":{"$ref":"#/definitions/router"},
+        "proxy":{"$ref":"#/definitions/proxy"}
+    }
+}
+  

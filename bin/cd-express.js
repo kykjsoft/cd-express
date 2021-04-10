@@ -74,7 +74,7 @@ getConfig(path.join(cwd,filename))
     if(args["--port"]){
         config.port = args["--port"];
     }
-    serve(config);
+    serve(cwd,config);
 }).catch(function(err){
     console.error(err);
 })
