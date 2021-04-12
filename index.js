@@ -2,6 +2,7 @@ const path = require("path");
 const express = require('express');
 const load = require('./lib/load');
 const createProxy = require("./lib/proxy")
+const plugin = require("./plugin/index")
 const defaultConfig = {
     port:3000,
     debug:false,
@@ -66,7 +67,8 @@ function createApp(cwd,pconfig){
             })
         }
     }
-
+    
+    plugin(app,config);
 
     return new Promise(resolve=>{
         app.listen(config.port,function(){

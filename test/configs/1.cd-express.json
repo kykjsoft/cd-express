@@ -12,5 +12,6 @@
             "./public"
         ]
     },
-    "proxy":"http://domain.com:8888"
+    "proxy":"http://domain.com:8888",
+    "socket": "ws://127.0.0.1:5009"
 }

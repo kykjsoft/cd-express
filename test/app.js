@@ -1,4 +1,4 @@
-const createApp = require("../index2");
+const createApp = require("../index");
 const path = require("path");
 
 createApp(path.join(__dirname,"./option"),{

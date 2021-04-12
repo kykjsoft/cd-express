@@ -8,5 +8,11 @@
 </head>
 <body>
     Test
+    <script>
+        var socket = new WebSocket("ws://"+window.location.host+"/socket")
+        socket.onopen = function(){
+            console.log("open");
+        }
+    </script>
 </body>
 </html>
