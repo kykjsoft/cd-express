@@ -1,6 +1,6 @@
 {
   "name": "cd-express",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "using express through configuration",
   "main": "index.js",
   "bin": {
