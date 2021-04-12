@@ -67,7 +67,7 @@
           "description": "代理socket",
           "properties": {
             "port":{
-              "type":"number",
+              "type":["number","string"],
               "description": "端口号",
               "default":"5009"
             },
