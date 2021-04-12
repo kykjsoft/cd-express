@@ -32,15 +32,26 @@
           }
         },
         "proxy":{
-          "type":"object",
+          "type":["object","string"],
           "description": "配置代理转发，\"/\" 表示根目录，示例：\n \"/\":[\"./docs\"]\n \"/libs\":[\"/dist/libs\"]\n配置项参考express中间件：http-proxy-middleware",
           "properties": {
             "/":{
               "description": "根目录，\n示例：\n [{\"target\":\"http://127.0.0.1:5009\"}]",
-              "type":"array",
-              "default":["./public"]
+              "type":["array","string"],
+              "default":"http://domain.com:8888",
+              "items": {
+                "type":"object",
+                "properties": {
+                  "target":{
+                    "type":"string",
+                    "description": "代理地址",
+                    "default":"http://domain.com:8888"
+                  }
+                }
+              }
             }
-          }
+          },
+          "default":"http://domain.com:8888"
         },
         "open":{
           "type":"object",

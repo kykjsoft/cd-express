@@ -1,0 +1,16 @@
+{
+    "routerDir":{
+        "/":["./router"]
+    },
+    "router": {
+        "/":["./router",{
+            "api/list":["2.js"]
+        }]
+    },
+    "static": {
+        "/":[
+            "./public"
+        ]
+    },
+    "proxy":"http://domain.com:8888"
+}

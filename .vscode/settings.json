@@ -2,7 +2,7 @@
     "json.schemas": [
         {
             "fileMatch": [
-                "**/cd-express.json"
+                "**/*cd-express.json"
             ],
             "url": "./docs/schemas/cd-express.json"
         }
