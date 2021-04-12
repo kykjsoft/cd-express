@@ -63,9 +63,20 @@
           }
         },
         "socket":{
-          "type":"string",
+          "type":"object",
           "description": "代理socket",
-          "default":"ws://127.0.0.1:5009"
+          "properties": {
+            "port":{
+              "type":"number",
+              "description": "端口号",
+              "default":"5009"
+            },
+            "hostname":{
+              "type":"string",
+              "description": "域名或 IP",
+              "default":"127.0.0.1"
+            }
+          }
         }
     },
     "properties": {
