@@ -1,5 +1,4 @@
-//const cdExpress = require("../") 
-//cdExpress(__dirname)
+const createApp = require("../index");
+const path = require("path");
 
-
-require("./option")
+createApp(path.join(__dirname,"./"),require("./cd-express.json"));

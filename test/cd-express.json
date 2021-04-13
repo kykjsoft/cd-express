@@ -3,9 +3,7 @@
         "/":["./router"]
     },
     "router": {
-        "/":["./router",{
-            "api/list":["2.js"]
-        }]
+        "/login":["./router/login.js"]
     },
     "static": {
         "/":[
