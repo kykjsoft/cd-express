@@ -11,12 +11,27 @@
         },
         "static":{
           "type":"object",
-          "description": "配置静态资源路由，\"/\" 表示根目录，示例：\n \"/\":[\"./docs\"]\n \"/libs\":[\"/dist/libs\"]",
+          "description": "配置静态资源路由",
           "properties": {
             "/":{
               "description": "根目录，\n示例：\n [\"./public\",\"./static\"]",
               "type":"array",
-              "default":["./public"]
+              "default":["./public"],
+              "items": {
+                "type":["object","string"],
+                "properties": {
+                  "index":{
+                    "type":"number",
+                    "default":0,
+                    "description": "优先级"
+                  },
+                  "target":{
+                    "type":"number",
+                    "default":0,
+                    "description": "优先级"
+                  }
+                }
+              }
             }
           }
         },
@@ -47,7 +62,8 @@
                     "description": "代理地址",
                     "default":"http://domain.com:8888"
                   }
-                }
+                },
+                "required":["target"]
               }
             }
           },
