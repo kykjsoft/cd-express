@@ -10,26 +10,38 @@
           "default":3000
         },
         "static":{
-          "type":["object","string"],
-          "description": "配置静态资源路由",
+          "type":"object",
+          "description": "配置静态资源路由 string | array | object ",
           "properties": {
             "/":{
               "description": "根目录，\n示例：\n [\"./public\",\"./static\"]",
-              "type":["string","array"],
+              "type":"array",
               "default":["./public"],
               "items": {
-                "type":"string"
+                "type":["object","string"],
+                "properties": {
+                  "index":{
+                    "type":"number",
+                    "default":0,
+                    "description": "优先级"
+                  },
+                  "target":{
+                    "type":"number",
+                    "default":0,
+                    "description": "优先级"
+                  }
+                }
               }
             }
           }
         },
         "router":{
-          "type":["object","string"],
+          "type":"object",
           "description": "配置动态路由，\"/\" 表示根目录，示例：\n \"/\":\"./router/index\"",
           "properties": {
             "/":{
               "description": "根目录，\n示例：\n [\"./public\",\"./static\"]",
-              "type":["array","string"],
+              "type":"array",
               "default":"./router/index"
             }
           }

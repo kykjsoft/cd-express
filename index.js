@@ -26,55 +26,8 @@ function createApp(cwd,pconfig){
     const config = Object.assign({},defaultConfig,pconfig)
     
     let app = express();
-    //static
-    for(let name in config.router){
-        let paths = config.router[name];
-        if(typeof paths == "string"){
-            paths = [paths];
-        }
-        paths.forEach(item=>{
-            if(name=="~"){ name = "/"}
-            app.use(name,load(path.join(cwd,item)));
-            log("[router] "+name +" " + path.join(cwd,item));
-        })
-    }
-
-    //static
-    for(var name in config.static){
-        let paths = config.static[name];
-        if(typeof paths == "string"){
-            paths = [paths];
-        }
-        paths.forEach(item=>{
-            if(name=="~"){ name = "/"}
-            app.use(name,express.static(path.join(cwd,item)));
-            log("[static] "+name +" " + path.join(cwd,item));
-        })
-    }
-
-    // proxy 
-    if(typeof config.proxy == "string"){
-        config.proxy = {"/":[{target:config.proxy}]}
-    }
     
-    for(var name in config.proxy){
-        let paths = config.proxy[name];
-        if(typeof paths == "string"){
-            paths = [{target:paths}];
-        }
-        
-        if(paths.constructor && paths.constructor === Array){
-            paths.forEach(item=>{
-                let opt = item;
-                if(typeof opt == "string"){
-                    opt = {target:opt}
-                }
-                if(name=="~"){ name = "/"}
-                app.use(name,createProxy(opt));
-                log("[proxy] "+name +" " + opt.target);
-            })
-        }
-    }
+    app.log = log;
     
     plugin(app,config);
 

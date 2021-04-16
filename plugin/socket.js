@@ -1,4 +1,4 @@
-module.exports = function(app,config){
+module.exports = async function(app,config){
     if(config.socket){
         app.on('upgrade', (req, client, head) => {
             const headers = _getProxyHeader(req.headers) //将客户端的websocket头和一些信息转发到真正的处理服务器上
