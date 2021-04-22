@@ -1,11 +1,10 @@
 const path = require("path");
 const express = require('express');
-const load = require('./lib/load');
-const createProxy = require("./lib/proxy")
 const plugin = require("./plugin/index")
 const defaultConfig = {
+    cwd:null,
     port:3000,
-    debug:false,
+    log:false,
     static:{
         "/":["./"],
     },
@@ -22,18 +21,39 @@ const defaultConfig = {
 const debug = true;
 const log = function(msg){debug&&console.log(msg);}
 
-function createApp(cwd,pconfig){
+
+
+async function createApp(cwd,pconfig){
     const config = Object.assign({},defaultConfig,pconfig)
-    
+    config.cwd = cwd || process.cwd();
     let app = express();
     
     app.log = log;
+    app.config = config;
+    app.uselog = function uselog(callback,msg){
+        return app.config.log?function(req,res,next){
+            console.log(`[响应] ${msg}`);
+            callback.apply(null,arguments);
+        }:callback;
+    };
     
-    plugin(app,config);
+    if(config.log){
+        app.log("[log] 已开启");
+    }
+
+    if(config.log){
+        app.use(function(req,res,next){
+            app.log(`[${req.method}] ${req.url}`);
+            next();
+        })
+    }
+
+    await plugin(app,config);
 
     return new Promise(resolve=>{
         app.listen(config.port,function(){
-            console.log("[express-server] 服务已启动 "+'http://127.0.0.1:'+config.port)
+            var addr = this.address();
+            console.log("[express-server] 服务已启动 "+'http://127.0.0.1:'+addr.port||addr);
             if(config.open.enabled){
                 const open = require('open');
                 let url = path.join(config.port.toString(),config.open.url).replace(/\\/g,"/");

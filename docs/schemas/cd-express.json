@@ -9,6 +9,11 @@
           "description": "端口,默认 3000",
           "default":3000
         },
+        "log":{
+          "type":["object","boolean"],
+          "description": "开启日志输出",
+          "default":false
+        },
         "static":{
           "type":["object","string"],
           "description": "配置静态资源路由",
@@ -85,6 +90,7 @@
     },
     "properties": {
         "port":{"$ref":"#/definitions/port"},
+        "log":{"$ref":"#/definitions/log"},
         "static":{"$ref":"#/definitions/static"},
         "router":{"$ref":"#/definitions/router"},
         "proxy":{"$ref":"#/definitions/proxy"},

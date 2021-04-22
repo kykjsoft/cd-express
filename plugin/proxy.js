@@ -19,8 +19,8 @@ module.exports = async function(app,config){
                     opt = {target:opt}
                 }
                 if(name=="~"){ name = "/"}
-                app.use(name,createProxy(opt));
-                log("[proxy] "+name +" " + opt.target);
+                app.use(name,app.uselog(createProxy(opt),opt.target));
+                app.log("[proxy] "+name +" " + opt.target);
             })
         }
     }

@@ -1,13 +1,14 @@
 {
   "name": "cd-express",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "using express through configuration",
   "main": "index.js",
   "bin": {
     "cd-express": "./bin/cd-express.js"
   },
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/index.js",
+    "prepack":"node "
   },
   "repository": {
     "type": "git",
