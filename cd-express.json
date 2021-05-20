@@ -1,16 +1,11 @@
 //doc: https://configure-driver.github.io/cd-express/
 {
     "port": 3000,
-    "root":"./",
     "static": {
         "/": [
             "./docs"
         ]
     },
-    "custom":[
-        {"type":"static","pathname":"/","dir":"./"},
-        {"type":"router","pathname":"/","file":"./aa.js"},
-        {"type":"proxy","pathname":"/","url":"http://sss.com:8080"},
-        {"type":"static","pathname":"/"}
-    ]
+    "socket": "",
+    "$schema": "https://configure-driver.github.io/cd-express/schemas/cd-express.json"
 }
