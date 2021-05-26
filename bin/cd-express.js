@@ -56,6 +56,7 @@ if(process.argv[2]=="init"){
     option.getConfig(cwd,{
         file:args["--config"]
     })
+    .then(c=>c || option.getConfigByDir(cwd))
     .then(function(config){
         if(args["--open"]){
             config.open = config.open || {}

@@ -24,6 +24,7 @@ const log = function(msg){debug&&console.log(msg);}
 
 
 async function createApp(cwd,pconfig){
+    console.log("createApp",pconfig)
     const config = Object.assign({},defaultConfig,pconfig)
     config.cwd = cwd || process.cwd();
     let app = express();
