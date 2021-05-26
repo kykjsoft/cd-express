@@ -1,4 +1,5 @@
 module.exports = {
+    base:"/cd-express/",
     extraWatchFiles: [
       '.vuepress/**/*.js', // Relative path usage
       'component/**/*.md'   // Absolute path usage
