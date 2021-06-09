@@ -17,6 +17,7 @@ if(process.argv[2]=="init"){
         '--help':    Boolean,
         '--init':    Boolean,
         '--debug':    Boolean,
+        '--markdown':    Boolean,
         '--version': Boolean,
         '--config': String,
         '--verbose': arg.COUNT,   // Counts the number of times --verbose is passed
@@ -24,6 +25,7 @@ if(process.argv[2]=="init"){
         // Aliases
         '-p':        '--port',
         '-v':        '--version',
+        '-m':        '--markdown',
         '-h':        '--help',
         '-c':        '--config',
     });
@@ -67,6 +69,9 @@ if(process.argv[2]=="init"){
         }
         if(args["--port"]){
             config.port = args["--port"];
+        }
+        if(args["--markdown"]){
+            config.markdown = args["--markdown"];
         }
         serve(cwd,config);
     }).catch(function(err){
