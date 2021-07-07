@@ -149,6 +149,9 @@ function mergetConfig(config1, config2) {
     if (config2.socket) {
         config1.socket = config2.socket;
     }
+    if (config2.proxy) {
+        config1.proxy = config2.proxy;
+    }
     return config1;
 }
 exports.mergetConfig = mergetConfig;

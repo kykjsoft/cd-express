@@ -1,12 +1,13 @@
 {
   "name": "cd-express",
-  "version": "1.0.20",
+  "version": "1.0.23",
   "description": "using express through configuration",
   "main": "index.js",
   "files": [
     "bin",
     "lib",
-    "plugin"
+    "plugin",
+    "dist"
   ],
   "bin": {
     "cd-express": "./bin/cd-express.js"
@@ -16,7 +17,8 @@
     "docs:dev": "vitepress dev docs-src",
     "docs:build": "vitepress build docs-src",
     "docs:serve": "vitepress serve docs-src",
-    "prepack": ""
+    "prepack": "",
+    "pkg":"pkg bin/cd-express.js --target win"
   },
   "repository": {
     "type": "git",
@@ -29,7 +31,6 @@
   },
   "homepage": "https://github.com/configure-driver/cd-express#readme",
   "dependencies": {
-    "@types/glob": "^7.1.4",
     "arg": "^4.1.3",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.1.0",
