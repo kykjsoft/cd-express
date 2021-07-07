@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+let option = require("../dist/option")
 
 if(process.argv[2]=="init"){
-    require("./init.js");
+    option.init(process.cwd())
+    .then(message=>console.log(message))
 }else{
 
     const path = require("path");
@@ -10,7 +12,7 @@ if(process.argv[2]=="init"){
     const serve = require('../index');
     const arg = require("arg")
     const pkg = require("../package.json")
-    const option = require("../lib/option")
+    const option = require("../dist/option")
 
     const args = arg({
         // Types
@@ -19,6 +21,7 @@ if(process.argv[2]=="init"){
         '--debug':    Boolean,
         '--markdown':    Boolean,
         '--version': Boolean,
+        '--debug': Boolean,
         '--config': String,
         '--verbose': arg.COUNT,   // Counts the number of times --verbose is passed
         '--port':    Number,      // --port <number> or --port=<number>
@@ -55,10 +58,10 @@ if(process.argv[2]=="init"){
     debug(args);
 
 
-    option.getConfig(cwd,{
-        file:args["--config"]
-    })
-    .then(c=>c || option.getConfigByDir(cwd))
+    //let starter = Promise.resolve(cwd);
+
+
+    option.getConfig(cwd,args["--config"])
     .then(function(config){
         if(args["--open"]){
             config.open = config.open || {}

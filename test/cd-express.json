@@ -1,17 +1,17 @@
+//doc: https://configure-driver.github.io/cd-express/
 {
-    "port":3000,
-    "log":true,
-    "routerDir":{
-        "/":["./router"]
-    },
-    "router": {
-        "/login":["./router/login.js"]
-    },
+    "port": 3000,
     "static": {
-        "/kyadmin":"E:\\MyGit\\kyadmin\\better\\kyadmin",
-        "/":[
+        "/": [
+            "./",
             "./public"
         ]
     },
-    "proxy": "http://localhost:5009"
+    "socket": "",
+    "router": {
+        "/": [
+            "./router/login.js"
+        ]
+    },
+    "$schema": "https://configure-driver.github.io/cd-express/schemas/cd-express.json"
 }
